@@ -130,6 +130,9 @@ def section_header():
 # ============================================================
 # 📂 DATASET OVERVIEW SECTION
 # ============================================================
+# ============================================================
+# 📂 DATASET OVERVIEW SECTION (FIXED)
+# ============================================================
 def section_dataset_overview():
     # -------------------------
     # 📂 Dataset Overview Section
@@ -152,8 +155,8 @@ def section_dataset_overview():
     sentiment_map = {0: "Neutral", 1: "Positive", -1: "Negative"}
     df_sample["sentiment"] = df_sample["category"].map(sentiment_map)
 
-    # Dataset shape and preview
-    st.markdown("<p style='font-size:16px;'>**Dataset Shape:** (36,793 rows × 2 columns)</p>", unsafe_allow_html=True)
+    # ✅ FIXED: Using Markdown for bold text (no HTML mix)
+    st.markdown("**Dataset Shape:** (36,793 rows × 2 columns)")
     st.dataframe(df_sample, use_container_width=True)
 
     # -------------------------
@@ -174,7 +177,7 @@ def section_dataset_overview():
         st.markdown(
             """
             <div style='font-size:16px; line-height:1.7;'>
-            During **Exploratory Data Analysis (EDA)**, it was observed that the dataset had a noticeable **class imbalance**:  
+            During <b>Exploratory Data Analysis (EDA)</b>, it was observed that the dataset had a noticeable <b>class imbalance</b>:  
             <ul>
                 <li>🟥 <b>Negative (-1)</b> class had approximately <b>8,000 samples</b></li>
                 <li>🟨 <b>Neutral (0)</b> class had approximately <b>12,000 samples</b></li>
@@ -184,7 +187,7 @@ def section_dataset_overview():
             While exploring the dataset, I observed that the distribution of sentiment classes was uneven — the negative class had around 8,000 samples, the neutral class about 12,000, and the positive class around 16,000.  
 
             ⚠️ Such imbalance can bias the model toward the majority class, affecting overall performance.  
-            ✅ To address this and improve the model’s ability to learn from all classes fairly, **imbalance handling techniques** like SMOTE and class weighting were applied during model building.
+            ✅ To address this and improve the model’s ability to learn from all classes fairly, <b>imbalance handling techniques</b> like SMOTE and class weighting were applied during model building.
             </div>
             """,
             unsafe_allow_html=True
