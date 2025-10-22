@@ -53,7 +53,7 @@ def section_header():
     st.write("""
     Welcome to the **Reddit Sentiment Analyzer**, a complete end-to-end DataScience and MLOps project designed to **analyze, visualize, and deploy sentiment analysis** on Reddit comments in real-time.
 
-    👉 Use the **sidebar(Navigation)** to explore different sections:
+    👉 Use the **sidebar(Navigation)** to explore different sections.
 
     """)
 
