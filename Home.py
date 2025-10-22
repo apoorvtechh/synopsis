@@ -26,7 +26,8 @@ section = st.sidebar.radio(
         "🌐 Flask API",
         "🌐 Secure API Deployment (HTTPS with Caddy & DuckDNS)",
         "🧠 Chrome Extension",
-        "✨ Extension Features"
+        "✨ Extension Features",
+        "🧱 Tech Stack",
     ]
 )
 
@@ -34,8 +35,12 @@ section = st.sidebar.radio(
 # ============================================================
 # 🏠 HEADER SECTION
 # ============================================================
+import streamlit as st
+
 def section_header():
-    # Project Title
+    # ============================================================
+    # 🏠 Project Header
+    # ============================================================
     st.markdown(
         "<h1 style='font-size:38px; color:#1E88E5;'>🔍 Reddit Sentiment Analyzer</h1>",
         unsafe_allow_html=True
@@ -45,91 +50,308 @@ def section_header():
         unsafe_allow_html=True
     )
 
-    # Intro Text
     st.write("""
-    Welcome to the **Reddit Sentiment Analyzer**, a complete end-to-end MLOps project designed to **analyze, visualize, and deploy sentiment analysis** on Reddit comments in real-time.
+    Welcome to the **Reddit Sentiment Analyzer**, a complete end-to-end DataScience and MLOps project designed to **analyze, visualize, and deploy sentiment analysis** on Reddit comments in real-time.
 
-    👉 Use the **sidebar** to explore different sections:
-    - 📊 **Visualize** sentiment distributions  
-    - 🧠 **Analyze** comment polarity and subjectivity  
-    - ⬇️ **Download** processed results and model outputs
+    👉 Use the **sidebar(Navigation)** to explore different sections:
+
     """)
 
     st.info("""
     💡 This project powers the **InsightReddit** Chrome extension, which helps users instantly gauge community sentiment directly on Reddit posts.
     """)
 
-    # --------------------------------------------------------------------
-    # 🌐 Extension Preview — Hero Image
-    # --------------------------------------------------------------------
+    # ============================================================
+    # 🌐 Extension Hero Preview
+    # ============================================================
     st.markdown("## 🧠 InsightReddit Extension — Live Preview")
-    st.image("front.png", caption="InsightReddit Chrome Extension — Landing View", use_container_width=False, width=500)
+    st.image("front.png", caption="InsightReddit Chrome Extension — Landing View", width=420)
 
     st.markdown(
         """
         The **InsightReddit** Chrome Extension acts as the **end-user interface**, integrating all backend components into a clean, one-click experience.  
-        Once installed, users can open any Reddit post, click the extension icon, and instantly view **sentiment analysis, comment trends**, and **key insights** without leaving the page.
+        Once installed, users can open any Reddit post, click the extension icon, and instantly view **sentiment analysis**, **comment trends**, and **key insights** without leaving the page.
         """
     )
 
-    # --------------------------------------------------------------------
-    # ✨ Extension Features — 4 Key Screens
-    # --------------------------------------------------------------------
-    st.markdown("## ✨ Key Extension Features")
+    # ============================================================
+    # 💻 Chrome Extension Card (Add Button + Note)
+    # ============================================================
+    st.markdown(
+        """
+        <div style='
+            background: linear-gradient(135deg, #E3F2FD 0%, #BBDEFB 100%);
+            border: 1px solid #90CAF9;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 30px 0;
+            box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+        '>
+            <h3 style='margin-bottom:10px; color:#0D47A1;'>🧩 Add InsightReddit to Chrome</h3>
+            <p style='color:#333; font-size:16px; max-width:600px; margin:auto;'>
+                Get instant <b>real-time sentiment insights</b> on any Reddit post directly in your browser — powered by ML models deployed through Flask API.
+            </p>
+            <a href='https://chromewebstore.google.com/detail/insightreddit/ldhjhlbadkgikjmdaknfejeoogpgpgbh?utm_source=ext_app_menu' target='_blank' style='
+                display:inline-block;
+                background: linear-gradient(90deg, #1976D2, #42A5F5);
+                color:white;
+                font-weight:bold;
+                padding:12px 24px;
+                border-radius:8px;
+                text-decoration:none;
+                margin-top:15px;
+                transition: all 0.3s ease;
+                box-shadow: 0px 4px 10px rgba(25,118,210,0.3);
+            ' onmouseover="this.style.background='linear-gradient(90deg, #1565C0, #2196F3)'" onmouseout="this.style.background='linear-gradient(90deg, #1976D2, #42A5F5)'">
+                ➕ Add Extension to Chrome
+            </a>
+            <p style='margin-top:15px; font-size:14px; color:#444;'>
+                ⚠️ <b>Note:</b> This extension is designed to work exclusively on the <b>Google Chrome browser</b>.  
+                It may not function properly on other browsers like Edge, Firefox, or Safari.
+            </p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
-    # 1️⃣ Metrics Overview + Pie Chart
-    col1, col2 = st.columns(2)
+
+    # ============================================================
+    # ✨ Key Extension Screens (Row of 4 Images)
+    # ============================================================
+    st.markdown("## ✨ Key Screens of the Extension")
+
+    col1, col2, col3, col4 = st.columns(4)
+
     with col1:
-        st.image("front1.png", caption="📋 Metrics Overview", width=400)
-        st.markdown(
-            """
-            **Metrics Overview Panel** provides quick, aggregated insights:  
-            - 📝 **Total Comments** analyzed  
-            - 🧍‍♂️ **Unique Comments** count  
-            - ✍️ **Average Comment Length**  
-            - ⭐ **Sentiment Score** (scaled 0–10)
+        st.image("front1.png", caption="📋 Metrics Overview", use_container_width=True)
 
-            This panel gives users an **instant understanding** of the conversation dynamics on a post.
-            """
-        )
     with col2:
-        st.image("pie.png", caption="🥧 Sentiment Distribution — Pie Chart", width=400)
-        st.markdown(
-            """
-            The **Pie Chart View** breaks down sentiment polarity across all comments into **Positive**, **Neutral**, and **Negative** segments.  
-            This helps users **visually grasp the dominant mood** of the discussion in just a glance.
-            """
-        )
+        st.image("pie.png", caption="🥧 Sentiment Distribution", use_container_width=True)
+
+    with col3:
+        st.image("wordcloud.png", caption="🌐 Word Clouds", use_container_width=True)
+
+    with col4:
+        st.image("sample_comment.png", caption="💬 Sample Comments", use_container_width=True)
+
+    # ============================================================
+    # 📄 Detailed Explanations for Each Image
+    # ============================================================
+    st.markdown("### 📝 Detailed Feature Descriptions")
+
+    st.markdown(
+        """
+        - **📋 Metrics Overview Panel**  
+          Provides quick, aggregated insights about the Reddit post:  
+          - Total Comments analyzed  
+          - Unique Commentors  
+          - Average Comment Length  
+          - Sentiment Score (scaled 0–10)  
+          This gives users an **instant overview** of discussion dynamics.
+
+        ---
+
+        - **🥧 Sentiment Distribution Pie Chart**  
+          Displays the proportion of **Positive**, **Neutral**, and **Negative** comments.  
+          Users can **visually grasp the dominant mood** of the thread in seconds.
+
+        ---
+
+        - **🌐 Word Clouds (Positive / Neutral / Negative)**  
+          Highlight the **most frequently used words** for each sentiment category:  
+          - 🟩 Positive → joyful, supportive language  
+          - 🟨 Neutral → factual/objective terms  
+          - 🟥 Negative → critical or emotionally intense words  
+          These clouds help **uncover hidden linguistic patterns** in the discussion.
+
+        ---
+
+        - **💬 Sample Comments Panel**  
+          Displays **top comments** for each sentiment category.  
+          Lets users explore **actual comment content** driving sentiment trends — giving both **quantitative** and **qualitative** understanding.
+        """
+    )
+
+
+    # ============================================================
+    # ✨ Key Extension Screens (Row of 4 Images)
+    # ============================================================
+    st.markdown("## ✨ Key Screens of the Extension")
+
+    col1, col2, col3, col4 = st.columns(4)
+
+    with col1:
+        st.image("front1.png", caption="📋 Metrics Overview", use_container_width=True)
+
+    with col2:
+        st.image("pie.png", caption="🥧 Sentiment Distribution", use_container_width=True)
+
+    with col3:
+        st.image("wordcloud.png", caption="🌐 Word Clouds", use_container_width=True)
+
+    with col4:
+        st.image("sample_comment.png", caption="💬 Sample Comments", use_container_width=True)
+
+    # ============================================================
+    # 📄 Detailed Explanations for Each Image
+    # ============================================================
+    st.markdown("### 📝 Detailed Feature Descriptions")
+
+    st.markdown(
+        """
+        - **📋 Metrics Overview Panel**  
+          Provides quick, aggregated insights about the Reddit post:  
+          - Total Comments analyzed  
+          - Unique Commentors  
+          - Average Comment Length  
+          - Sentiment Score (scaled 0–10)  
+          This gives users an **instant overview** of discussion dynamics.
+
+        ---
+
+        - **🥧 Sentiment Distribution Pie Chart**  
+          Displays the proportion of **Positive**, **Neutral**, and **Negative** comments.  
+          Users can **visually grasp the dominant mood** of the thread in seconds.
+
+        ---
+
+        - **🌐 Word Clouds (Positive / Neutral / Negative)**  
+          Highlight the **most frequently used words** for each sentiment category:  
+          - 🟩 Positive → joyful, supportive language  
+          - 🟨 Neutral → factual/objective terms  
+          - 🟥 Negative → critical or emotionally intense words  
+          These clouds help **uncover hidden linguistic patterns** in the discussion.
+
+        ---
+
+        - **💬 Sample Comments Panel**  
+          Displays **top comments** for each sentiment category.  
+          Lets users explore **actual comment content** driving sentiment trends — giving both **quantitative** and **qualitative** understanding.
+        """
+    )
+
+    
+
+def section_tech_stack():
+    st.header("🧱 Complete Tech Stack Used in the Project")
+
+    st.markdown(
+        """
+        This project leverages a **comprehensive and modern technology stack** — from **data preprocessing & NLP** to **modeling, MLOps, deployment**, and a **Chrome extension** frontend.  
+        Each layer is carefully chosen to ensure **scalability**, **reproducibility**, and **real-time performance**.
+        """
+    )
+
+    # ============================================================
+    # 🧠 Machine Learning & NLP
+    # ============================================================
+    st.subheader("🧠 Machine Learning & NLP")
+    st.markdown(
+        """
+        - **scikit-learn** — Core ML library used for vectorization (TF–IDF), model training (Logistic Regression), and evaluation metrics.  
+        - **XGBoost**, **LightGBM**, **SVM**, **KNN** — Tested as part of model selection experiments.  
+        - **TextBlob** — Extracts sentiment polarity scores for handcrafted features.  
+        - **NLTK** — Text preprocessing: stopword removal, tokenization, lemmatization.  
+        - **Optuna** — Automated hyperparameter optimization (used for tuning Logistic Regression).  
+        - **Imbalanced-learn (SMOTE)** — Handles class imbalance by synthetic oversampling.
+        """
+    )
+
+    # ============================================================
+    # 🧰 Data Processing & Experimentation
+    # ============================================================
+    st.subheader("🧰 Data Processing & Experimentation")
+    st.markdown(
+        """
+        - **Pandas**, **NumPy** — Data cleaning, manipulation, and feature engineering.  
+        - **SciPy** — Sparse matrix operations and stacking TF–IDF with handcrafted features.  
+        - **DVC (Data Version Control)** — Automates and versions each ML pipeline stage (data ingestion → preprocessing → model → evaluation).  
+        - **YAML** — Parameter storage for reproducible experiments.  
+        - **Pickle** — Model serialization for deployment.
+        """
+    )
+
+    # ============================================================
+    # 🧪 MLOps & Experiment Tracking
+    # ============================================================
+    st.subheader("🧪 MLOps & Experiment Tracking")
+    st.markdown(
+        """
+        - **MLflow** — For model tracking, metric logging, and model registry.  
+        - **DVC Pipelines** — Automates end-to-end training workflow.  
+        - **GitHub Actions** — CI/CD for running pipelines, model evaluation, and automated registration.  
+        - **Model Registry (MLflow)** — Versioning and stage management (`None`, `Staging`, `Production`) for models.
+        """
+    )
+
+    # ============================================================
+    # 🐳 Containerization & Deployment
+    # ============================================================
+    st.subheader("🐳 Containerization & Deployment")
+    st.markdown(
+        """
+        - **Flask** — Lightweight REST API for live sentiment prediction.  
+        - **Docker** — Containerizes the entire application (API + model + dependencies).  
+        - **Gunicorn** — WSGI server for running Flask in production.  
+        - **Caddy** — Used as a **reverse proxy** with **automatic HTTPS** via Let's Encrypt.  
+        - **DuckDNS** — Provides a **free dynamic DNS domain**, used to expose the API with HTTPS.  
+        - **AWS EC2** — Hosted the containerized application for real-time access.  
+        - **HTTPS & Domain** — Caddy + DuckDNS ensured secure, domain-based access to the API without manual certificate handling.
+        """
+    )
+
+    # ============================================================
+    # 🌐 Frontend & Visualization
+    # ============================================================
+    st.subheader("🌐 Frontend & Visualization")
+    st.markdown(
+        """
+        - **Streamlit** — Interactive project dashboard and model reporting interface.  
+        - **Matplotlib** — Visualizations like ROC curves, confusion matrices, and bar charts.  
+        - **InsightReddit Chrome Extension** — Frontend layer for real-time sentiment visualization on Reddit posts.  
+            - **Chart.js** — Renders sentiment pie charts.  
+            - **wordcloud2.js** — Generates dynamic word clouds for each sentiment.  
+            - **Vanilla JS / HTML / CSS** — Builds popup UI and handles API calls to Flask backend.
+        """
+    )
+
+    # ============================================================
+    # 🛠 DevOps & CI/CD
+    # ============================================================
+    st.subheader("🛠 DevOps & CI/CD")
+    st.markdown(
+        """
+        - **Git & GitHub** — Version control for code, pipelines, and experiments.  
+        - **GitHub Actions** — Automates pipeline runs, model registration, and API testing on every push.  
+        - **DVC Remote (S3)** — Remote storage for datasets and model artifacts.  
+        - **pytest** — Automated unit tests for model and API validation.  
+        - **Caddy + DuckDNS** — Lightweight, automated **DevOps solution for HTTPS** and **custom domain management**, removing the need for complex reverse proxy setups.
+        """
+    )
+
+    # ============================================================
+    # 🐍 Languages & Environments
+    # ============================================================
+    st.subheader("🐍 Core Languages & Environments")
+    st.markdown(
+        """
+        - **Python 3.11** — Primary programming language for all ML and backend components.  
+        - **JavaScript** — For Chrome extension frontend logic.  
+        - **HTML / CSS** — For building the extension popup interface.  
+        - **Anaconda** — Virtual environment management during development.  
+        - **requirements.txt** — All dependencies listed for reproducibility.
+        """
+    )
 
     st.divider()
+    st.markdown(
+        """
+        🚀 **This full-stack integration** allowed the project to smoothly go from **raw Reddit data** → **ML pipeline** → **model registry** → **containerized API** → **secure HTTPS deployment with Caddy + DuckDNS** → **browser extension**,  
+        creating a **production-ready sentiment analysis system** end to end.
+        """
+    )
 
-    # 2️⃣ Word Cloud + Sample Comments
-    col3, col4 = st.columns(2)
-    with col3:
-        st.image("wordcloud.png", caption="🌐 Word Clouds — Positive / Neutral / Negative", width=400)
-        st.markdown(
-            """
-            The **Word Cloud Visualizations** highlight the most frequently used words for each sentiment category.  
-            - 🟩 **Positive** — joyful, supportive language  
-            - 🟨 **Neutral** — objective or factual terms  
-            - 🟥 **Negative** — critical or emotionally intense language
-
-            These clouds help uncover **hidden linguistic patterns** in discussions.
-            """
-        )
-    with col4:
-        st.image("sample_comment.png", caption="💬 Sample Comments — Categorized by Sentiment", width=400)
-        st.markdown(
-            """
-            The **Sample Comments Panel** showcases real Reddit comments categorized by **sentiment**.  
-            Each section lists top comments under Positive, Neutral, and Negative — making it easy to **quickly explore real content** driving sentiment trends.
-            """
-        )
-
-
-# ============================================================
-# 📂 DATASET OVERVIEW SECTION
-# ============================================================
 # ============================================================
 # 📂 DATASET OVERVIEW SECTION (FIXED)
 # ============================================================
@@ -316,7 +538,7 @@ Key points of this baseline:
 
             ### 🏆 Key Findings  
             - ⭐ **Best feature size:** `max_features = 7000` consistently gave the **highest macro and weighted F1 scores**, indicating a **sweet spot** between capturing enough vocabulary and avoiding overfitting.  
-            - 🚀 **Top performers:** **Logistic Regression** and **SVM** were clear winners. They provided **strong macro F1**, were **computationally lightweight**, and exhibited **high stability** across different feature sizes.  
+            - 🚀 **Top performers:** **Logistic Regression** and **SVM** were clear winners. They provided **strong macro F1**, **Logistic Regression** was **computationally lightweight**, and exhibited **high stability** across different feature sizes.  
             - 🌲 **Tree-based models (XGBoost & LightGBM):** Delivered competitive scores, but required **careful hyperparameter tuning** and **more computational time**, which may be unnecessary for real-time use cases.  
             - 🧊 **KNN:** Showed **consistently weak results**, struggling in the **high-dimensional sparse space**, leading to poor generalization and slower inference.
 
@@ -325,7 +547,7 @@ Key points of this baseline:
             By comparing models across multiple feature sizes, we avoided **premature optimization** and focused on configurations that offered the **best trade-off between accuracy, F1-score, speed, and scalability**.
 
             ### 📝 Takeaway  
-            After extensive trials, the **TF-IDF vectorizer with 7,000 max features**, paired with a **linear model** like Logistic Regression or SVM, emerged as the **optimal choice**.  
+            After extensive trials, the **TF-IDF vectorizer with 7,000 max features**, paired with a **linear model** like Logistic Regression, emerged as the **optimal choice**.  
             This combination not only achieved **top performance metrics** but also offered **faster training times**, **lighter model size**, and **easier deployment** compared to more complex alternatives.
             """
         )
@@ -358,6 +580,35 @@ Key points of this baseline:
             These results demonstrated that Logistic Regression not only achieved **the highest scores** but also provided **stability**, **fast inference**, and **ease of deployment**, making it the ideal choice for production.
             """
         )
+    st.markdown(
+    """
+    <div style='
+        background: linear-gradient(135deg, #E3F2FD, #BBDEFB);
+        color: #0D1117;
+        border-left: 6px solid #1565C0;
+        padding: 1.2rem;
+        border-radius: 12px;
+        font-size: 15.5px;
+        line-height: 1.7;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    '>
+        <h4 style='color:#0D47A1; margin-bottom:10px;'>🧩 Preprocessing Strategy</h4>
+        <p style='margin:0;'>
+            To ensure a robust and leak-free pipeline, all <b>text preprocessing</b>, 
+            <b>vectorization</b> (<b>TF-IDF</b> / <b>Bag-of-Words</b>), and <b>scaling</b> operations 
+            were performed <u>only after</u> the <b>train–test split</b>.
+        </p>
+        <br>
+        <p style='margin:0;'>
+            This design prevents any form of <b>data leakage</b>, ensuring that the model never "sees" 
+            the test data during training. As a result, our evaluation remains <b>fair, reproducible</b>, 
+            and accurately reflects <b>true model generalization</b>.
+        </p>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
     st.divider()
     st.markdown("<h2 style='color:#1E88E5;'>🧪 Feature Engineering</h2>", unsafe_allow_html=True)
 
@@ -465,20 +716,22 @@ def section_dvc_pipeline():
     with col2:
         st.markdown(
             """
-            <div style='font-size:15px; line-height:1.6;'>
-            The **DVC pipeline** defines the full end-to-end ML workflow in reproducible, version-controlled stages.  
+        <div style='font-size:15px; line-height:1.6;'>
+            The <b>DVC pipeline</b> defines the full end-to-end ML workflow in reproducible, version-controlled stages.  
             Each stage has:
-            - 🧱 **Inputs (deps)** → data, code, parameters  
-            - ⚙️ **Command (cmd)** → processing script  
-            - 📤 **Outputs (outs)** → artifacts for the next stage
-
-            ### 📌 Pipeline Stages
-            1️⃣ **data_ingestion** → Load, split raw dataset  
-            2️⃣ **data_preprocessing** → Clean & normalize text  
-            3️⃣ **model_building** → TF-IDF + handcrafted features + train model  
-            4️⃣ **model_evaluation** → Evaluate model + log metrics to MLflow  
-            5️⃣ **model_registration** → Register final model in MLflow Model Registry
-            </div>
+            <ul>
+                <li>🧱 <b>Inputs (deps)</b> → data, code, parameters</li>
+                <li>⚙️ <b>Command (cmd)</b> → processing script</li>
+                <li>📤 <b>Outputs (outs)</b> → artifacts for the next stage</li>
+                <h4>📌 Pipeline Stages</h4>
+                    <li>1️⃣ <b>data_ingestion</b> → Load, split raw dataset</li>
+                    <li>2️⃣ <b>data_preprocessing</b> → Clean & normalize text</li>
+                    <li>3️⃣ <b>model_building</b> → TF-IDF + handcrafted features + train model</li>
+                    <li>4️⃣ <b>model_evaluation</b> → Evaluate model + log metrics to MLflow</li>
+                    <li>5️⃣ <b>model_registration</b> → Register final model in MLflow Model Registry</li>
+                
+          
+        </div>
             """,
             unsafe_allow_html=True
         )
@@ -712,7 +965,7 @@ def section_cicd_pipeline():
     # 🖼️ Display Flowchart First
     # --------------------------------------------------------
     st.markdown("<h2 style='color:#1E88E5;'>🚀 CI/CD Pipeline for MLOps</h2>", unsafe_allow_html=True)
-    st.image("cicd_img2.png", caption="CI/CD + DVC + MLflow + AWS Deployment Flow", width=800)
+    st.image("cicd_img2.png", caption="CI/CD + DVC + MLflow + AWS Deployment Flow", width=600)
 
     # --------------------------------------------------------
     # 📖 Overview
@@ -1172,7 +1425,7 @@ def section_chrome_extension():
     st.markdown(
         """
         - **📄 `manifest.json`**  
-          - Declares required permissions (`tabs`, `activeTab`, `scripting`).  
+          - Declares required permissions (`tabs`, `activeTab`).  
           - Allows secure communication with the Flask API endpoint.  
           - Defines the extension icon and popup entry point.
 
@@ -1293,3 +1546,5 @@ elif section == "🧠 Chrome Extension":
     section_chrome_extension()
 elif section == "✨ Extension Features":
     section_extension_features()
+elif section == "🧱 Tech Stack":
+    section_tech_stack()
