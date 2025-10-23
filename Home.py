@@ -174,62 +174,6 @@ def section_header():
     )
 
 
-    # ============================================================
-    # ✨ Key Extension Screens (Row of 4 Images)
-    # ============================================================
-    st.markdown("## ✨ Key Screens of the Extension")
-
-    col1, col2, col3, col4 = st.columns(4)
-
-    with col1:
-        st.image("front1.png", caption="📋 Metrics Overview", use_container_width=True)
-
-    with col2:
-        st.image("pie.png", caption="🥧 Sentiment Distribution", use_container_width=True)
-
-    with col3:
-        st.image("wordcloud.png", caption="🌐 Word Clouds", use_container_width=True)
-
-    with col4:
-        st.image("sample_comment.png", caption="💬 Sample Comments", use_container_width=True)
-
-    # ============================================================
-    # 📄 Detailed Explanations for Each Image
-    # ============================================================
-    st.markdown("### 📝 Detailed Feature Descriptions")
-
-    st.markdown(
-        """
-        - **📋 Metrics Overview Panel**  
-          Provides quick, aggregated insights about the Reddit post:  
-          - Total Comments analyzed  
-          - Unique Commentors  
-          - Average Comment Length  
-          - Sentiment Score (scaled 0–10)  
-          This gives users an **instant overview** of discussion dynamics.
-
-        ---
-
-        - **🥧 Sentiment Distribution Pie Chart**  
-          Displays the proportion of **Positive**, **Neutral**, and **Negative** comments.  
-          Users can **visually grasp the dominant mood** of the thread in seconds.
-
-        ---
-
-        - **🌐 Word Clouds (Positive / Neutral / Negative)**  
-          Highlight the **most frequently used words** for each sentiment category:  
-          - 🟩 Positive → joyful, supportive language  
-          - 🟨 Neutral → factual/objective terms  
-          - 🟥 Negative → critical or emotionally intense words  
-          These clouds help **uncover hidden linguistic patterns** in the discussion.
-
-        ---
-
-        - **💬 Sample Comments Panel**  
-          Displays **top comments** for each sentiment category.  
-          Lets users explore **actual comment content** driving sentiment trends — giving both **quantitative** and **qualitative** understanding.
-        """
-    )
 
     
 
