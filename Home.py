@@ -410,7 +410,7 @@ Key points of this baseline:
 
     # ------------------------------------------------------
     # Vectorization Experiments
-    # ------------------------------------------------------
+  
     st.subheader("🔬 Vectorization Experiments")
     col1, col2 = st.columns([1, 1.4])
     with col1:
@@ -448,7 +448,7 @@ Key points of this baseline:
             - 🔸 **ADASYN** – Adaptive synthetic sampling  
             - 🔸 **Class Weights** – Loss weighting
 
-            🏆 **SMOTE** gave the **best minority-class recall** without hurting precision.
+            ✅ After several experiments, I selected **SMOTE** because it consistently provided the best **minority-class F1 score**.
             """
         )
 
