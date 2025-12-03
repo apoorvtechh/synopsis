@@ -1480,44 +1480,40 @@ def section_repos():
     # 📦 Repositories Card
     # -------------------------
     st.markdown(
-    """
-    <div style="background-color:#f1f5ff;padding:22px;border-radius:14px;
-    border:1px solid #c5d4ff;box-shadow:0 2px 8px rgba(0,0,0,0.06);margin-top:12px;">
+        """
+        <div style="background-color:#f1f5ff;padding:22px;border-radius:14px;
+            border:1px solid #c5d4ff;box-shadow:0 2px 8px rgba(0,0,0,0.06);margin-top:12px;">
 
-    <h3 style="color:#0b2e72; margin-bottom:12px;">📦 Project Repositories</h3>
+            <h3 style="color:#0b2e72; margin-bottom:12px;">📦 Project Repositories</h3>
 
-    <ul style="color:#111; line-height:1.6; font-size:16px;">
+            <ul style="color:#111; font-size:16px; line-height:1.7;">
 
-        <li>
-            <b>Main Project Repository:</b><br>
-            <a href="https://github.com/apoorvtechh/reddit-comment-sentiment-analysis" target="_blank">
-                github.com/apoorvtechh/reddit-comment-sentiment-analysis
-            </a>
-        </li>
+                <li>
+                    <b>Main Project Repository:</b><br>
+                    <a href="https://github.com/apoorvtechh/reddit-comment-sentiment-analysis" target="_blank">
+                        github.com/apoorvtechh/reddit-comment-sentiment-analysis
+                    </a>
+                </li>
 
-        <br>
+                <li style="margin-top:14px;">
+                    <b>Chrome Extension Repository:</b><br>
+                    <a href="https://github.com/apoorvtechh/reddit-yt-plugin" target="_blank">
+                        github.com/apoorvtechh/reddit-yt-plugin
+                    </a>
+                </li>
 
-        <li>
-            <b>Chrome Extension Repository:</b><br>
-            <a href="https://github.com/apoorvtechh/reddit-yt-plugin" target="_blank">
-                github.com/apoorvtechh/reddit-yt-plugin
-            </a>
-        </li>
+                <li style="margin-top:14px;">
+                    <b>Experimentation Repository:</b><br>
+                    <a href="https://github.com/apoorvtechh/Second_project" target="_blank">
+                        github.com/apoorvtechh/Second_project
+                    </a>
+                </li>
 
-        <br>
+            </ul>
 
-        <li>
-            <b>Experimentation Repository:</b><br>
-            <a href="https://github.com/apoorvtechh/Second_project" target="_blank">
-                github.com/apoorvtechh/Second_project
-            </a>
-        </li>
-
-    </ul>
-
-    </div>
-    """,
-    unsafe_allow_html=True,
+        </div>
+        """,
+        unsafe_allow_html=True,
     )
 
     # -------------------------
