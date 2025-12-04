@@ -2,6 +2,8 @@
 
 This repository contains the **synopsis and high-level documentation** for the Reddit Comment Sentiment Analysis system.  
 It summarizes the ML pipeline, NLP workflow, model experimentation, API design, and Chrome extension architecture.
+### Working Link
+https://synopsis-yqdbpufcczaocxsai2zp3w.streamlit.app/
 
 ---
 
